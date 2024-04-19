@@ -1,4 +1,13 @@
 /// <reference types="cypress" />
+import SignUpForm from "../../pages/SignUpForm";
+const signUpForm = new SignUpForm;
+import UserProfile from "../../pages/UserProfile";
+const userProfile = new UserProfile;
+import BasedPage from "../../pages/BasePage";
+const basedPage = new BasedPage;
+import GaragePage from "../../pages/GaragePage";
+const garagePage = new GaragePage;
+
 
 function generateRandomEmail() {
     const username = "user" + Math.floor(Math.random() * 1000);
@@ -10,30 +19,30 @@ function generateRandomEmail() {
     ][Math.floor(Math.random() * 4)];
     return `${username}@${domain}`;
   }
-  
+ 
   const baseURL = "qauto2.forstudy.space/";
-  const name = "DanaTest";
+  const name = "Bohdana";
   const lastName = "Vashchuk";
   const email = generateRandomEmail();
   const password = "Test123!";
-  const profileURL = "qauto2.forstudy.space/panel/profile";
+
+  const user ={
+    name: name,
+    lastName: lastName,
+    email: email, 
+    password: password,
+   }
+  
   
   describe("Registration of a new user in the service", () => {
     it("Populate the registration form by data and sign up", () => {
       cy.visit(`https://guest:welcome2qauto@${baseURL}`);
-      cy.get("button").contains("Sign up").click();
-      cy.get("#signupName").type(`${name}`).should("have.value", `${name}`);
-      cy.get("#signupLastName").type(`${lastName}`).should("have.value", `${lastName}`);
-      cy.get("#signupEmail").type(`${email}`).should("have.value", `${email}`);
-      cy.get("#signupPassword").type(`${password}`).should("have.value", `${password}`);
-      cy.get("#signupRepeatPassword").type(`${password}`).should("have.value", `${password}`);
-      cy.get("button").contains("Register").click();
-      cy.get("h1").contains("Garage");
-      cy.visit(`https://guest:welcome2qauto@${profileURL}`);
-      cy.get("h1").contains("Profile");
-      cy.get('p.profile_name.display-4').should('exist');
-      cy.get('p.profile_name.display-4').should('contain', `${name}`);
-      cy.get('p.profile_name.display-4').should('contain', `${lastName}`);
-    
+      signUpForm.signUnButton().click();
+      signUpForm.createAccount(user);
+      signUpForm.signUpRegisterButton().click();
+      signUpForm.verifyGaragePageAfterUserCreation();
+      userProfile.UserProfilePage().click();
+      userProfile.verifyURLOfUserProfile();
+      userProfile.verifyUserProfile(user);
     });
   });
