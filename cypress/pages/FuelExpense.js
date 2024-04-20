@@ -6,7 +6,7 @@ export default class FuelExpense extends BasedPage{
     }
     
     addExpensesButton(){
-        return cy.get('.item-group > .btn')
+        return cy.get('.btn-primary')
     }
     
     expensesEmptyState(){
@@ -104,6 +104,24 @@ export default class FuelExpense extends BasedPage{
     
     totalCostColumnValue(){
         return cy.get('tbody > tr > :nth-child(4)')
+    }
+
+    moveMouseRemoveButton(){
+      return cy.get('tbody > tr > :nth-child(5)').first().trigger('mouseover');
+    }
+
+
+    removeButton(){
+        return cy.get('button.btn.btn-delete')
+        // .invoke('css', 'visibility', 'visible')
+        // .trigger('mouseover')
+        // .invoke('css', 'visibility', 'hidden');
+      
+
+    }
+
+    confirmTheRemoveEntry(){
+        return cy.xpath(`//button[@class="btn btn-danger"]`)
     }
     
 

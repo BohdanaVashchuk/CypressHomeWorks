@@ -1,171 +1,183 @@
-import BasedPage from "./BasePage"
+import BasedPage from "./BasePage";
 
-export default class GaragePage extends BasedPage{
-    pageName(){
-        return cy.get('h1[_ngcontent-adx-c75]')
-    }
+export default class GaragePage extends BasedPage {
+  pageName() {
+    return cy.get("h1[_ngcontent-adx-c75]");
+  }
 
-    notCarState(){
-        return cy.get('.h3.panel-empty_message')
-    }
+  notCarState() {
+    return cy.get('.h3');
+  }
 
-    addCarButton(){
-        return cy.get('button').contains('Add car')  
-    }
+  addCarButton() {
+    return cy.get("button").contains("Add car");
+  }
 
-    addCarModalWindow(){
-        return cy.get('.modal-content')
-        // xhath: //div[@class="modal-content"]
-    }
+  addCarModalWindow() {
+    return cy.get(".modal-content");
+    // xhath: //div[@class="modal-content"]
+  }
 
-    brandFieldName(){
-        return cy.get('label').contains('Brand') 
-    }
+  brandFieldName() {
+    return cy.get("label").contains("Brand");
+  }
 
-    brandFieldDropDown(){
-        return cy.get('#addCarModel')
-    }
-    
-    modelFieldName(){
-        return cy.get('label').contains('Model') 
-    }
-    modelFieldDropDown(){
-        return cy.get('#addCarModel')
-    }
+  brandFieldDropDown() {
+    return cy.get("#addCarBrand");
+  }
 
-    mileageFieldName(){
-        return cy.get('label').contains('Mileage') 
-    }
+  modelFieldName() {
+    return cy.get("label").contains("Model");
+  }
+  modelFieldDropDown() {
+    return cy.get("#addCarModel");
+  }
 
-    mileageTextField(){
-        return cy.get('#addCarMileage')
-    }
+  mileageFieldName() {
+    return cy.get("label").contains("Mileage");
+  }
 
-    mileageTextMetricSystem(){
-        return cy.xpath(`//div[@class="input-group-text"`)
-    }
+  mileageTextField() {
+    return cy.get("#addCarMileage");
+  }
 
-    cancelButtonOnModalAddCar(){
-        return cy.xpath(`//button[@class="btn btn-secondary" and @text="Cancel"]`)
-    }
+  mileageTextMetricSystem() {
+    return cy.xpath(`//div[@class="input-group-text"`);
+  }
 
-    addButtonOnModalAddCar(){
-        return cy.xpath(`//button[@class="btn btn-primary" and @text="Add"]`)
-    }
+  cancelButtonOnModalAddCar() {
+    return cy.get(`//button[@class="btn btn-secondary" and @text="Cancel"]`);
+  }
 
-    crossButtonOnModalAddCar(){
-        return cy.xpath(`//button[@class="close"]`)
-    }
+  addButtonOnModalAddCar() {
+    return cy.get(".modal-footer > .btn-primary");
+  }
 
-    generalCarAddedCard(){
-        return cy.xpath(`//div[@class="car jumbotron"]`)
-    }
+  crossButtonOnModalAddCar() {
+    return cy.xpath(`//button[@class="close"]`);
+  }
 
-    logoCarAddedCard(){
-        return cy.get('.car_logo.car-logo')
-    }
+  generalCarAddedCard() {
+    return cy.get(":nth-child(1) > app-car > .car");
+  }
 
-    modelofCarAddedCard(){
-        return cy.xpath(`//p[@class="car_name h2"]`)
-    }
+  logoCarAddedCard() {
+    return cy.get(".car_logo.car-logo");
+  }
 
-    editCarAddedCard(){
-        return cy.xpath(`//button[@class="car_edit btn btn-edit"]`)
-    }
+  modelOfAddedCar() {
+    return cy.get(
+      ":nth-child(1) > app-car > .car > .car-heading > .car_base > .car-group > .car_name",
+      { timeout: 2000 }
+    );
+  }
 
-    updateMileageCarAddedCard(){
-        return cy.xpath(`//p[@class="car_update-mileage"]`)
-    }
+  editCarAddedCard() {
+    return cy.xpath(`//button[@class="car_edit btn btn-edit"]`);
+  }
 
-    updateMileageIconCarAddedCard(){
-        return cy.xpath(`//span[@class="update-mileage-form_icon icon icon-tachometer"]`)
-    }
+  updateMileageCarAddedCard() {
+    return cy.get(
+      ":nth-child(1) > app-car > .car > .car-body > app-update-mileage-form > .update-mileage-form > .update-mileage-form_input"
+    );
+  }
 
-    updateMileageInputCarAddedCard(){
-        return cy.xpath(`//input[@name="miles"]`)
-    }
+  updateMileageIconCarAddedCard() {
+    return cy.xpath(
+      `//span[@class="update-mileage-form_icon icon icon-tachometer"]`
+    );
+  }
 
-    updateMileageButtonCarAddedCard(){
-        return cy.xpath(`//button[@class="update-mileage-form_submit btn btn-secondary btn-sm"]`)
-    }
+  updateMileageInputCarAddedCard() {
+    return cy.xpath(`//input[@name="miles"]`);
+  }
 
-    editCarModal(){ 
-        cy.get('.modal-content')
-    }
+  updateMileageButtonCarAddedCard() {
+    return cy.xpath(
+      `//button[@class="update-mileage-form_submit btn btn-secondary btn-sm"]`
+    );
+  }
 
-    editBrandOnCarModal(){ 
-        cy.get('#addCarBrand')
-    }
+  editCarModal() {
+    return cy.get(".modal-content");
+  }
 
-    editBrandOnCarModal(){ 
-        cy.get('#addCarBrand')
-    }
+  editBrandOnCarModal() {
+    return cy.get("#addCarBrand");
+  }
 
-    editModelOnCarModal(){ 
-        cy.get('#addCarModel')
-    }
+  editBrandOnCarModal() {
+    return cy.get("#addCarBrand");
+  }
 
-    editMileageOnCarModal(){ 
-        cy.get('#addCarMileage')
-    } 
-    
-    editDateOnCarModal(){ 
-        cy.get('#carCreationDate')
-    } 
-    
-    cancelButtonEditCarModal(){ 
-        cy.get('.modal-footer_group > .btn-secondary')
-    } 
-    
-    addCarModal(){ 
-        cy.get('.modal-footer_group > .btn-primary')
-    } 
-    
-    crossButtonOnCarModal(){ 
-        cy.get('.close')
-    }
+  editModelOnCarModal() {
+    return cy.get("#addCarModel");
+  }
 
-    removeModel(){
-        cy.get('.modal-content')
-    }
+  editMileageOnCarModal() {
+    return cy.get("#addCarMileage");
+  }
 
-    confirmRemoveModel(){
-        cy.get('.btn-danger')
-    }
-    cancelRemove(){
-        cy.get('.modal-footer > .btn-secondary') 
-    }
+  editDateOnCarModal() {
+    return cy.get("#carCreationDate");
+  }
 
-    addAnExpenseButton(){ 
-        cy.get('#addExpenseTotalCost')
-    }
+  cancelButtonEditCarModal() {
+    return cy.get(".modal-footer_group > .btn-secondary");
+  }
 
-    vehicleFieldddAnExpenseModal(){ 
-        cy.get('.modal-content')
-    }
+  removeCarButton() {
+    return cy.get(".btn-outline-danger");
+  }
 
-    reportDateFieldddAnExpenseModal(){ 
-        cy.get('#addExpenseDate')
-    }
+  addCarModal() {
+    return cy.get(".modal-footer_group > .btn-primary");
+  }
 
-   mileageFieldddAnExpenseModal(){ 
-    cy.get('#addExpenseMileage')
-    }
+  crossButtonOnCarModal() {
+    return cy.get(".close");
+  }
 
-    numberOfLitersFieldddAnExpenseModal(){ 
-        cy.get('#addExpenseLiters')
-     }
+  removeModel() {
+    return cy.get(".modal-content");
+  }
 
-     totalCostFieldAddAnExpenseModal(){ 
-        cy.get('#addExpenseTotalCost')
-        }
+  confirmRemoveModel() {
+    return cy.get(".btn-danger");
+  }
+  cancelRemove() {
+    return cy.get(".modal-footer > .btn-secondary");
+  }
 
-    addButtonAddAnExpenseModal(){
-        cy.get('.modal-footer > .btn-primary')
-    }
+  addAnExpenseButton() {
+    return cy.get("#addExpenseTotalCost");
+  }
 
-    cancelButtonAddAnExpenseModal(){
-        cy.get('.modal-footer > .btn-secondary')   
-     }
-        
+  vehicleFieldddAnExpenseModal() {
+    return cy.get(".modal-content");
+  }
+
+  reportDateFieldddAnExpenseModal() {
+    return cy.get("#addExpenseDate");
+  }
+
+  mileageFieldddAnExpenseModal() {
+    return cy.get("#addExpenseMileage");
+  }
+
+  numberOfLitersFieldddAnExpenseModal() {
+    return cy.get("#addExpenseLiters");
+  }
+
+  totalCostFieldAddAnExpenseModal() {
+    return cy.get("#addExpenseTotalCost");
+  }
+
+  addButtonAddAnExpenseModal() {
+    return cy.get(".modal-footer > .btn-primary");
+  }
+
+  cancelButtonAddAnExpenseModal() {
+    return cy.get(".modal-footer > .btn-secondary");
+  }
 }

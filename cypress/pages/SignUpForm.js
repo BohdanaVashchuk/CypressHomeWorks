@@ -27,14 +27,6 @@ export default class SignUnForm {
         return cy.xpath(`//button[@class='btn btn-primary']`);
     }
 
-    createAccount(user) {
-    this.signUpName().type(user.name).should("have.value", user.name);
-    this.signUpLastName().type(user.lastName).should("have.value", user.lastName);
-    this.signUpEmail().type(user.email).should("have.value", user.email);
-    this.signUpPassword().type(user.password).should("have.value", user.password);
-    this.signUpRepeatPassword().type(user.password).should("have.value", user.password);
-    }
-
 
     verifyGaragePageAfterUserCreation() {
         cy.url().should('include', '/panel/garage');
