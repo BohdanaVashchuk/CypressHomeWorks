@@ -3,6 +3,26 @@ export default class BasedPage {
         return cy.get(`.header_logo`)
     }
 
+    signInButton() {
+        return cy.xpath(`//button[@class="btn btn-outline-white header_signin"]`);
+    }
+ 
+    logInForm() {
+     return cy.xpath(`//div[@class="modal-content"]`);
+    }
+ 
+    emailFieldLogInForm() {
+     return cy.get('#signinEmail');
+    }
+ 
+    passwordFieldLogInForm() {
+     return cy.get('#signinPassword');
+    }
+ 
+    signInButtonLogInForm() {
+     return cy.xpath(`//button[@class="btn btn-primary"]`);
+ }
+
     headerGarageActive(){
         return cy.xpath(`//a[@class="btn header-link -active" and @href="/panel/garage"]`)
     }
@@ -40,27 +60,27 @@ export default class BasedPage {
     }
 
     sideBarGarage(){
-        cy.get('.sidebar > .-active')
+        return cy.get('.sidebar > .-active')
     }
 
     sideBarExpenses(){
-        cy.get('[routerlink="expenses"]')    
+        return cy.get('[routerlink="expenses"]')    
     }
 
     sideBarInstructions(){
-        cy.get('[routerlink="instructions"]')
+        return cy.get('[routerlink="instructions"]')
     }
 
     sideBarProfile(){
-        cy.get('.-profile')
+        return cy.get('.-profile')
     }
 
     sideBarSettings(){
-        cy.get('[routerlink="settings"]')
+        return cy.get('[routerlink="settings"]')
     }
 
     sideBarLogOut(){
-        cy.get('.sidebar > .btn-link')
+        return cy.get('.sidebar > .btn-link')
     }
 
 
