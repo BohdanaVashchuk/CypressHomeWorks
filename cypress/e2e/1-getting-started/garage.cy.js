@@ -10,19 +10,12 @@ const garagePage = new GaragePage();
 import GeneralStep from "../../steps/generalStep";
 const generalStep = new GeneralStep();
 
-function generateRandomEmail() {
-  const username = "user" + Math.floor(Math.random() * 1000);
-  const domain = ["gmail.com", "hotmail.com", "outlook.com", "aol.com"][
-    Math.floor(Math.random() * 4)
-  ];
-  return `${username}@${domain}`;
-}
 
 const baseURL = "qauto2.forstudy.space/";
 const name = "Bohdana";
 const lastName = "Vashchuk";
-const email = generateRandomEmail();
-const password = "Test123!";
+const email = generalStep.generateRandomEmail();
+const password = generalStep.generateRandomPassword();
 
 const user = {
   name: name,
