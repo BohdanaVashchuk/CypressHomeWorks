@@ -20,4 +20,8 @@ export default class FuelExpenses extends GeneralStep {
     fuelExpense.removeButton().click({ force: true });
     fuelExpense.confirmTheRemoveEntry().click();
   }
+
+  validateFuelExpenses(){
+    fuelExpense.addedRecord() 
+  }
 }
