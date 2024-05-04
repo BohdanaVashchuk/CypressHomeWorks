@@ -38,6 +38,10 @@ export default class Garage extends GeneralStep{
     verifyIfCarDeleted(){
         garagePage.notCarState().should("have.value", "You don’t have any cars in your garage")
     }
+
+    findObjectByBrand(carsArray, brand) {
+        return carsArray.data.find(item => item.brand === brand);
+      }
     
     
 }

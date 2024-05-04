@@ -18,7 +18,7 @@ const car = {
 
 const expenseObj = {
   vehicle: "Audi TT",
-  date: "20.04.2024",
+  date: "21.04.2024",
   mileage: 4545,
   liters: 45,
   totalCost: 343,
@@ -32,10 +32,10 @@ describe("Verify the adding and deleting the Car in the Garage", () => {
     // garage.addCar(car);
   });
 
-//   afterEach(() => {
-//     garage.removeCar();
-//     cy.log("afterEach hooks")
-//   });
+  after(() => {
+    garage.removeCar();
+    cy.log("afterEach hooks")
+  });
 
 
   it("Add an expenses and verify if it is successfully processed", () => {

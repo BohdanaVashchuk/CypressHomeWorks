@@ -123,6 +123,10 @@ export default class FuelExpense extends BasedPage{
     confirmTheRemoveEntry(){
         return cy.xpath(`//button[@class="btn btn-danger"]`)
     }
+
+    addedRecord(){
+        return cy.get(".table.expenses_table")
+    }
     
 
 }
